@@ -57,59 +57,59 @@ document.getElementById("animationToggleButton").onclick = function(){
 
 function updateClock(){
     if (mode == "clock"){
-    const currentDate = new Date()
-    if (military){
-        hourEl.textContent = currentDate.getHours()
-    }
-    else{
-        if (currentDate.getHours() > 12){
-            hourEl.textContent = currentDate.getHours()-12
-            meridiemEl.textContent = "PM"
+        const currentDate = new Date()
+        if (military){
+            hourEl.textContent = currentDate.getHours()
         }
         else{
-            hourEl.textContent = currentDate.getHours();
-            meridiemEl.textContent = "AM"
-        }
-    }
-    if (currentDate.getMinutes() <= 10){
-        minuteEl.textContent = "0"+currentDate.getMinutes().toString()
-        
-    }
-    else{
-        minuteEl.textContent = currentDate.getMinutes()
-    }
-    if (secondsDisplay){
-        secondEl.style.display = ""
-        colon2El.style.display = ""
-        if (currentDate.getSeconds() <= 10){
-            if (clockAnimation){
-                secondEl.style.animation = 'none';
-                secondEl.offsetHeight;
-                secondEl.style.animation = "textPop .1s"
+            if (currentDate.getHours() > 12){
+                hourEl.textContent = currentDate.getHours()-12
+                meridiemEl.textContent = "PM"
             }
-            secondEl.textContent = "0"+currentDate.getSeconds().toString()
+            else{
+                hourEl.textContent = currentDate.getHours();
+                meridiemEl.textContent = "AM"
+            }
+        }
+        if (currentDate.getMinutes() <= 10){
+            minuteEl.textContent = "0"+currentDate.getMinutes().toString()
+            
         }
         else{
-            if (clockAnimation){
-                secondEl.style.animation = 'none';
-                secondEl.offsetHeight;
-                secondEl.style.animation = "textPop .1s"
+            minuteEl.textContent = currentDate.getMinutes()
+        }
+        if (secondsDisplay){
+            secondEl.style.display = ""
+            colon2El.style.display = ""
+            if (currentDate.getSeconds() <= 10){
+                if (clockAnimation){
+                    secondEl.style.animation = 'none';
+                    secondEl.offsetHeight;
+                    secondEl.style.animation = "textPop .1s"
+                }
+                secondEl.textContent = "0"+currentDate.getSeconds().toString()
             }
-            secondEl.textContent = currentDate.getSeconds()
+            else{
+                if (clockAnimation){
+                    secondEl.style.animation = 'none';
+                    secondEl.offsetHeight;
+                    secondEl.style.animation = "textPop .1s"
+                }
+                secondEl.textContent = currentDate.getSeconds()
+            }
+        }
+        else{
+            secondEl.style.display = "none"
+            colon2El.style.display = "none"
+        }
+        }
+        if (military){
+            meridiemEl.style.display = "none"
+        }
+        else{
+            meridiemEl.style.display = ""
         }
     }
-    else{
-        secondEl.style.display = "none"
-        colon2El.style.display = "none"
-    }
-    }
-    if (military){
-        meridiemEl.style.display = "none"
-    }
-    else{
-        meridiemEl.style.display = ""
-    }
-}
 
 
 
