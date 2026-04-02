@@ -53,15 +53,16 @@
 #modeSelect{
     position: fixed;
     display: flex;
-    transform: translateX(-50%)skew(-10deg);
-    left: 50%;
-    bottom:1rem;
+    transform:skew(-10deg);
+    left: 1vw;
+    bottom:1vw;
     gap: 1vw;
     padding: .5vw;
     padding-right: 1vw;
     padding-left: 1vw;
     background-color: var(--secondary-color);
     opacity: .2;
+    z-index: 9999;
 }
 
 #modeSelect:hover{
@@ -211,4 +212,101 @@
 
 #settings br{
     margin: 1vw;
+}
+
+
+#timerDiv{
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.26);
+    z-index: 99;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    backdrop-filter: blur(.5vw)contrast(.2);
+    opacity: 0;
+    pointer-events: none;
+}
+
+#timerDiv div{
+    transform: skew(-5deg);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 20vw;
+    width: 40vw;
+    align-self: center;
+    border-radius: 2vw;
+    border: .3vw black solid;
+    box-shadow: .2vw .2vw black,.4vw .4vw black,.6vw .6vw black,.8vw .8vw black,1vw 1vw black;
+    gap: 1vw;
+}
+
+#timerDiv div input{
+    font-size: 2.5vw;
+    height: 5vw;
+    width: 5vw;
+    border: .3vw black solid;
+    border-radius: .5vw;
+    box-shadow: .1vw .1vw black,.2vw .2vw black,.3vw .3vw black;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    text-align: center;
+    font-family: main;
+}
+
+#timerDiv div input::-webkit-outer-spin-button,
+#timerDiv div input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#timerDiv p{
+    align-self: center;
+    font-family: main;
+    background-color: var(--clear);
+    color: var(--primary-color);
+    -webkit-text-stroke: .2vw var(--secondary-color);
+    filter: drop-shadow(.1vw .1vh var(--secondary-color))drop-shadow(.1vw .1vh var(--secondary-color));
+    font-size: 4vw;
+    pointer-events: none;
+}
+
+
+#timerTimeHint{
+    position: fixed;
+    font-size: 1.5vw !important;
+    -webkit-text-stroke: 0 !important;
+    filter: none !important;
+    color: rgba(0, 0, 0, 0.25) !important;
+    transform: translateY(4vw)translateX(1vw)skew(0deg) !important;
+    word-spacing: 2vw;
+    pointer-events: none;
+}
+
+#timerTimeBut{
+    font-family: main;
+    position: fixed;
+    font-size: 1.5vw;
+    border: .2vw black solid;
+    border-radius: 1vw;
+    box-shadow: .2vw .2vw black;
+    transform: translateY(8vw);
+    padding-right: 2vw;
+    padding-left: 2vw;
+}
+
+#timerTimeBut:hover{
+    transform: translateY(7.9vw)translateX(-.1vw);
+    box-shadow: .3vw .3vw black;
+}
+
+#timerTimeBut:active{
+    transform: translateY(8vw)translateX(0vw);
+    box-shadow: .2vw .2vw black;
 }

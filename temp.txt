@@ -1,0 +1,8 @@
+<div id="timerDivTimeSelect">
+    <label for="timerTimeHour">Hours:</label>
+    <input id="timerTimeHour"type="number"min="0"max="24">
+    <label for="timerTimeMinute">Minutes:</label>
+    <input id="timerTimeMinute"type="number"min="0"max="60">
+    <label for="timerTimeSeconds">Seconds:</label>
+    <input id="timerTimeSeconds"type="number"min="0"max="60">
+</div>

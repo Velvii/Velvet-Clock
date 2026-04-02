@@ -17,7 +17,7 @@
         </div>
         <div id="modeSelect">
             <button id="clockButton"class="selected">CLOCK</button>
-            <button id="timerButton">COMING SOON</button>
+            <button id="timerButton">TIMER</button>
         </div>
         <div id="settings">
             <button id="militaryToggleButton">Military Time</button>
@@ -25,6 +25,21 @@
             <button id="animationToggleButton">Clock Animations</button>
             <br>
             <button id="settingsCloseButton">Close</button>
+        </div>
+        <div id="timerDiv">
+            <div id="timerDivTimeSelect">
+                <input  placeholder="00"id="timerTimeHour"type="number"min="0"max="24">
+                <p>:</p>
+                <input placeholder="00"id="timerTimeMinute"type="number"min="0"max="60">
+                <p>:</p>
+                <input placeholder="00"id="timerTimeSeconds"type="number"min="0"max="60">
+                <p id="timerTimeHint">Hours Minutes Seconds</p>
+                <button id="timerTimeBut">Ok</button>
+            </div>
+            <p>or</p>
+            <div id="timerDivClockSelect">
+                
+            </div>
         </div>
     </body>
 </html>

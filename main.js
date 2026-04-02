@@ -18,24 +18,14 @@ let meridiemEl = document.getElementById("meridiem")
 let clockButtonEl = document.getElementById("clockButton")
 let timerButtonEl = document.getElementById("timerButton")
 
-let settingsDiv = document.getElementById("settings")
-
-let settingsButtonEl = document.getElementById("settingsButton")
-settingsButtonEl.onclick = function(){
-    settingsDiv.style.opacity = "1"
-    settingsDiv.style.pointerEvents = "all"
-    settingsDiv.style.filter = "drop-shadow(.2vw -.2vw var(--secondary-color))"
-    settingsDiv.style.transform = "none"
+document.getElementById("settingsButton").onclick = function(){
+    document.getElementById("settings").style.opacity = "1"
+    document.getElementById("settings").style.pointerEvents = "all"
 }
 
-let themesButtonEl = document.getElementById("themesButton")
-
-let settingsCloseButtonEl = document.getElementById("settingsCloseButton")
-settingsCloseButtonEl.onclick = function(){
-    settingsDiv.style.opacity = "0"
-    settingsDiv.style.pointerEvents = "none"
-    settingsDiv.style.filter = "none"
-    settingsDiv.style.transform = "translate(1vw, -1vw)"
+document.getElementById("settingsCloseButton").onclick = function(){
+    document.getElementById("settings").style.opacity = "0"
+    document.getElementById("settings").style.pointerEvents = "none"
 }
 
 document.getElementById("militaryToggleButton").onclick = function(){
@@ -54,6 +44,22 @@ document.getElementById("animationToggleButton").onclick = function(){
 }
 
 
+clockButtonEl.onclick = function(){
+    mode = "clock"
+    document.getElementById("clockButton").classList.add("selected")
+    document.getElementById("timerButton").classList.remove("selected")
+    document.getElementById("timerDiv").style.opacity = "0"
+    document.getElementById("timerDiv").style.pointerEvents = "none"
+}
+
+timerButtonEl.onclick = function(){
+    mode = "timer"
+    document.getElementById("clockButton").classList.remove("selected")
+    document.getElementById("timerButton").classList.add("selected")
+    document.getElementById("timerDiv").style.opacity = "1"
+    document.getElementById("timerDiv").style.pointerEvents = "all"
+}
+
 
 function updateClock(){
     if (mode == "clock"){
@@ -62,12 +68,12 @@ function updateClock(){
             hourEl.textContent = currentDate.getHours()
         }
         else{
+            
             if (currentDate.getHours() > 12){
                 hourEl.textContent = currentDate.getHours()-12
                 meridiemEl.textContent = "PM"
             }
             else{
-                hourEl.textContent = currentDate.getHours();
                 meridiemEl.textContent = "AM"
             }
         }
@@ -79,8 +85,8 @@ function updateClock(){
             minuteEl.textContent = currentDate.getMinutes()
         }
         if (secondsDisplay){
-            secondEl.style.display = ""
-            colon2El.style.display = ""
+            secondEl.style.display=""
+            colon2El.style.display=""
             if (currentDate.getSeconds() <= 10){
                 if (clockAnimation){
                     secondEl.style.animation = 'none';
@@ -99,21 +105,16 @@ function updateClock(){
             }
         }
         else{
-            secondEl.style.display = "none"
-            colon2El.style.display = "none"
-        }
+            secondEl.style.display="none"
+            colon2El.style.display="none"
         }
         if (military){
-            meridiemEl.style.display = "none"
+            meridiemEl.style.display="none"
         }
         else{
-            meridiemEl.style.display = ""
+            meridiemEl.style.display=""
         }
     }
-
-
-
-
-
+}
 updateClock()
 setInterval(updateClock,1000)
