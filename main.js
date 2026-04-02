@@ -18,10 +18,41 @@ let meridiemEl = document.getElementById("meridiem")
 let clockButtonEl = document.getElementById("clockButton")
 let timerButtonEl = document.getElementById("timerButton")
 
+let settingsDiv = document.getElementById("settings")
 
-clockButtonEl.onclick = function(){
-
+let settingsButtonEl = document.getElementById("settingsButton")
+settingsButtonEl.onclick = function(){
+    settingsDiv.style.opacity = "1"
+    settingsDiv.style.pointerEvents = "all"
+    settingsDiv.style.filter = "drop-shadow(.2vw -.2vw black)"
+    settingsDiv.style.transform = "none"
 }
+
+let themesButtonEl = document.getElementById("themesButton")
+
+let settingsCloseButtonEl = document.getElementById("settingsCloseButton")
+settingsCloseButtonEl.onclick = function(){
+    settingsDiv.style.opacity = "0"
+    settingsDiv.style.pointerEvents = "none"
+    settingsDiv.style.filter = "none"
+    settingsDiv.style.transform = "translate(1vw, -1vw)"
+}
+
+document.getElementById("militaryToggleButton").onclick = function(){
+    military = !military
+    updateClock()
+}
+
+document.getElementById("secondsToggleButton").onclick = function(){
+    secondsDisplay = !secondsDisplay
+    updateClock()
+}
+
+document.getElementById("animationToggleButton").onclick = function(){
+    clockAnimation = !clockAnimation
+    updateClock()
+}
+
 
 
 function updateClock(){
@@ -48,6 +79,8 @@ function updateClock(){
         minuteEl.textContent = currentDate.getMinutes()
     }
     if (secondsDisplay){
+        secondEl.style.display = ""
+        colon2El.style.display = ""
         if (currentDate.getSeconds() <= 10){
             if (clockAnimation){
                 secondEl.style.animation = 'none';
@@ -66,13 +99,21 @@ function updateClock(){
         }
     }
     else{
-        secondEl.remove()
-        colon2El.remove()
+        secondEl.style.display = "none"
+        colon2El.style.display = "none"
     }
     }
     if (military){
-        meridiemEl.remove()
+        meridiemEl.style.display = "none"
+    }
+    else{
+        meridiemEl.style.display = ""
     }
 }
+
+
+
+
+
 updateClock()
 setInterval(updateClock,1000)

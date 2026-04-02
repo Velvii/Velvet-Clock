@@ -164,3 +164,37 @@
         transform: translateY(.5vw)rotate(5deg);
     }
 }
+
+#settings{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: .3vw black solid;
+    top: 1vw;
+    right: 1vw;
+    width: 30vw;
+    padding: 1vw;
+    border-radius: 1vw;
+    filter: drop-shadow(.2vw -.2vw black);
+}
+
+#settings button{
+    font-family: main;
+    font-size: 1.5vw;
+    padding: .3vw;
+    margin: .2vw;
+    border: .3vw black solid;
+    border-radius: .2vw;
+}
+
+#settings button:hover{
+    transform: translate(-.2vw, .2vw);
+    filter: drop-shadow(.1vw -.1vw black)drop-shadow(.1vw -.1vw black);
+}
+#settingsCloseButton{
+}
+
+#settings br{
+    margin: 1vw;
+}
