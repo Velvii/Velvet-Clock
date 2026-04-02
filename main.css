@@ -176,7 +176,10 @@
     width: 30vw;
     padding: 1vw;
     border-radius: 1vw;
-    filter: drop-shadow(.2vw -.2vw black);
+    opacity: 0;
+    pointer-events: none;
+    filter: none;
+    transform: none;
 }
 
 #settings button{
@@ -192,8 +195,12 @@
     transform: translate(-.2vw, .2vw);
     filter: drop-shadow(.1vw -.1vw black)drop-shadow(.1vw -.1vw black);
 }
-#settingsCloseButton{
+
+#settings button:active{
+    transform: none;
+    filter: none;
 }
+
 
 #settings br{
     margin: 1vw;
