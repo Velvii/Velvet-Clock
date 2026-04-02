@@ -1,0 +1,166 @@
+*{
+    --primary-color: white;
+    --secondary-color: black;
+    --clear: #ffffff00;
+    background-color: var(--primary-color);
+    transition:  .1s ease-out;
+}
+
+@font-face{
+    font-family: main;
+    src: url(./assets/Montserrat-Black.otf)
+}
+
+#title{
+    position: fixed;
+    font-family: main;
+    text-align: center;
+    font-size: 3vw;
+    transform: translateX(-50%) skew(-10deg);
+    color: var(--secondary-color);
+    left: 50%;
+    white-space: pre;
+    top: 1vw;
+}
+
+#title mark{
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+#time{
+    position: fixed;
+    display: flex;
+    transform: translateX(-50%)translateY(-50%) skew(-5deg);
+    left: 50%;
+    top: 50%;
+}
+
+#time p{
+    font-family: main;
+    font-size: 14vw;
+    background-color: var(--clear);
+}
+
+
+#meridiem{
+    padding-left: 5vw;
+}
+
+#modeSelect{
+    position: fixed;
+    display: flex;
+    transform: translateX(-50%)skew(-10deg);
+    left: 50%;
+    bottom:1rem;
+    gap: 1vw;
+    padding: .5vw;
+    padding-right: 1vw;
+    padding-left: 1vw;
+    background-color: var(--secondary-color);
+    opacity: .2;
+}
+
+#modeSelect:hover{
+    opacity: 1;
+    bottom:1.2rem;
+}
+
+#modeSelect button{
+    font-family: main;
+    border: none;
+    opacity: .5;
+    font-size: 2vw;
+    -webkit-text-stroke: .08vw var(--primary-color);
+    background-color: var(--secondary-color)
+}
+
+
+#modeSelect button:hover{
+    opacity: 1;
+}
+
+.selected{
+    background-color: var(--primary-color) !important;
+    -webkit-text-stroke: 0vw;
+}
+
+@keyframes textPop{
+    0%{
+        scale:.9;
+        transform:skew(5deg);
+    }
+    100%{
+        
+    }
+}
+
+
+#settingsButton{
+    position: fixed;
+    width: 3vw;
+    height: 3vw;
+    background-color: transparent;
+    top: 1vw;
+    right: 1vw;
+    border: none;
+    background-image: url(./assets/settings-icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: .2;
+}
+
+#settingsButton:hover{
+    opacity: 1;
+    animation: settingsButtonHover cubic-bezier(0.33, 1, 0.68, 1) 1s;
+}
+
+#themesButton:hover{
+    opacity: 1;
+    animation: themesButtonHover cubic-bezier(0.33, 1, 0.68, 1) 1s;
+}
+
+#themesButton{
+    position: fixed;
+    width: 3vw;
+    height: 3vw;
+    background-color: var(--clear);
+    top: 1vw;
+    right: 5vw;
+    border: none;
+    background-image: url(./assets/themes-icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: .2;
+}
+
+@keyframes settingsButtonHover{
+    0%{
+        transform: rotate(340deg);
+    }
+    20%{
+        transform: rotate(360deg);
+    }
+    100%{
+        
+    }
+}
+
+@keyframes themesButtonHover{
+    0%{
+        transform: translateY(0vw);
+    }
+    20%{
+        transform: translateY(.5vw)rotate(5deg);
+    }
+    40%{
+        transform: translateY(0vw);
+    }
+    60%{
+        transform: translateY(.5vw)rotate(5deg);
+    }
+}
