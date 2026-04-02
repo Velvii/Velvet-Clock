@@ -36,6 +36,7 @@ function updateClock(){
             meridiemEl.textContent = "PM"
         }
         else{
+            hourEl.textContent = currentDate.getHours();
             meridiemEl.textContent = "AM"
         }
     }
