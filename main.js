@@ -24,7 +24,7 @@ let settingsButtonEl = document.getElementById("settingsButton")
 settingsButtonEl.onclick = function(){
     settingsDiv.style.opacity = "1"
     settingsDiv.style.pointerEvents = "all"
-    settingsDiv.style.filter = "drop-shadow(.2vw -.2vw black)"
+    settingsDiv.style.filter = "drop-shadow(.2vw -.2vw var(--secondary-color))"
     settingsDiv.style.transform = "none"
 }
 

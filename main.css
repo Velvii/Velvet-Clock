@@ -1,6 +1,6 @@
 *{
-    --primary-color: white;
-    --secondary-color: black;
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgb(0, 0, 0);
     --clear: #ffffff00;
     background-color: var(--primary-color);
     transition:  .1s ease-out;
@@ -42,6 +42,7 @@
     font-family: main;
     font-size: 14vw;
     background-color: var(--clear);
+    color: var(--secondary-color);
 }
 
 
@@ -74,7 +75,8 @@
     opacity: .5;
     font-size: 2vw;
     -webkit-text-stroke: .08vw var(--primary-color);
-    background-color: var(--secondary-color)
+    background-color: var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 
@@ -111,6 +113,8 @@
     background-repeat: no-repeat;
     background-position: center;
     opacity: .2;
+    filter: invert(1);
+    mix-blend-mode: exclusion;
 }
 
 #settingsButton:hover{
@@ -136,6 +140,8 @@
     background-repeat: no-repeat;
     background-position: center;
     opacity: .2;
+    filter: invert(1);
+    mix-blend-mode: exclusion;
 }
 
 @keyframes settingsButtonHover{
@@ -169,8 +175,8 @@
     position: fixed;
     display: flex;
     flex-direction: column;
-    background-color: white;
-    border: .3vw black solid;
+    background-color: var(--primary-color);
+    border: .3vw var(--secondary-color) solid;
     top: 1vw;
     right: 1vw;
     width: 30vw;
@@ -187,13 +193,14 @@
     font-size: 1.5vw;
     padding: .3vw;
     margin: .2vw;
-    border: .3vw black solid;
+    border: .3vw var(--secondary-color) solid;
     border-radius: .2vw;
+    color: var(--secondary-color);
 }
 
 #settings button:hover{
     transform: translate(-.2vw, .2vw);
-    filter: drop-shadow(.1vw -.1vw black)drop-shadow(.1vw -.1vw black);
+    filter: drop-shadow(.1vw -.1vw var(--secondary-color))drop-shadow(.1vw -.1vw var(--secondary-color));
 }
 
 #settings button:active{
