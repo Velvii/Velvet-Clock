@@ -31,6 +31,7 @@
 }
 
 #time{
+    background-color: var(--clear);
     position: fixed;
     display: flex;
     transform: translateX(-50%)translateY(-50%) skew(-5deg);
@@ -230,6 +231,7 @@
     backdrop-filter: blur(.5vw)contrast(.2);
     opacity: 0;
     pointer-events: none;
+    gap: .5vw;
 }
 
 #timerDiv div{
@@ -267,6 +269,7 @@
 }
 
 #timerDiv p{
+    margin: .5vw;
     align-self: center;
     font-family: main;
     background-color: var(--clear);
@@ -296,17 +299,18 @@
     border: .2vw black solid;
     border-radius: 1vw;
     box-shadow: .2vw .2vw black;
-    transform: translateY(8vw);
+    align-self: flex-end;
+    bottom: 1vw;
     padding-right: 2vw;
     padding-left: 2vw;
 }
 
 #timerTimeBut:hover{
-    transform: translateY(7.9vw)translateX(-.1vw);
+    transform: translateY(-.1vw)translateX(-.1vw);
     box-shadow: .3vw .3vw black;
 }
 
 #timerTimeBut:active{
-    transform: translateY(8vw)translateX(0vw);
+    transform: translateY(0vw)translateX(0vw);
     box-shadow: .2vw .2vw black;
 }
