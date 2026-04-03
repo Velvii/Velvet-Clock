@@ -28,16 +28,25 @@
         </div>
         <div id="timerDiv">
             <div id="timerDivTimeSelect">
-                <input  placeholder="00"id="timerTimeHour"type="number"min="0"max="24">
+                <h1>Go off in amount of time</h1>
+                <input  placeholder="00"id="timerTimeHour"type="number"min="0"max="24"oninput="this.value=this.value.slice(0,2);if (parseInt(this.value) > 24){this.value = '24'}">
                 <p>:</p>
-                <input placeholder="00"id="timerTimeMinute"type="number"min="0"max="60">
+                <input placeholder="00"id="timerTimeMinute"type="number"min="0"max="60"oninput="this.value=this.value.slice(0,2);if (parseInt(this.value) > 60){this.value = '60'}">
                 <p>:</p>
-                <input placeholder="00"id="timerTimeSeconds"type="number"min="0"max="60">
+                <input placeholder="00"id="timerTimeSeconds"type="number"min="0"max="60"oninput="this.value=this.value.slice(0,2);if (parseInt(this.value) > 60){this.value = '60'}">
                 <p id="timerTimeHint">Hours Minutes Seconds</p>
                 <button id="timerTimeBut">Ok</button>
             </div>
             <p>or</p>
             <div id="timerDivClockSelect">
+                <h1>Go off at a specific time</h1>
+                <input  placeholder="00"id="timerClockHour"type="number"min="0"max="24"oninput="this.value=this.value.slice(0,2);if (parseInt(this.value) > 12){this.value = '12'}">
+                <p>:</p>
+                <input placeholder="00"id="timerClockMinute"type="number"min="0"max="60"oninput="this.value=this.value.slice(0,2);if (parseInt(this.value) > 59){this.value = '59'}">
+                <p>:</p>
+                <button id="timerClockMeridiem">AM</button>
+                <p id="timerClockHint">Hour Minute Meridiem</p>
+                <button id="timerClockBut">Ok</button>
             </div>
         </div>
     </body>

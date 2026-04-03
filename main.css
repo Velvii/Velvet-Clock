@@ -68,7 +68,7 @@
 
 #modeSelect:hover{
     opacity: 1;
-    bottom:1.2rem;
+    bottom:1.2vw;
 }
 
 #modeSelect button{
@@ -229,8 +229,8 @@
     align-content: center;
     flex-direction: column;
     backdrop-filter: blur(.5vw)contrast(.2);
-    opacity: 0;
-    pointer-events: none;
+    opacity: 1;
+    pointer-events: all;
     gap: .5vw;
 }
 
@@ -250,7 +250,7 @@
 }
 
 #timerDiv div input{
-    font-size: 2.5vw;
+    font-size: 2.2vw;
     height: 5vw;
     width: 5vw;
     border: .3vw black solid;
@@ -292,7 +292,43 @@
     pointer-events: none;
 }
 
+#timerClockHint{
+    position: fixed;
+    font-size: 1.5vw !important;
+    -webkit-text-stroke: 0 !important;
+    filter: none !important;
+    color: rgba(0, 0, 0, 0.25) !important;
+    transform: translateY(4vw)translateX(1vw)skew(0deg) !important;
+    word-spacing: 4vw;
+    pointer-events: none;
+}
+
 #timerTimeBut{
+    font-family: main;
+    position: fixed;
+    font-size: 1.5vw;
+    border: .2vw var(--secondary-color) solid;
+    border-radius: 1vw;
+    box-shadow: .2vw .2vw var(--secondary-color);
+    align-self: flex-end;
+    bottom: 1vw;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+#timerTimeBut:hover{
+    transform: translateY(-.1vw)translateX(-.1vw);
+    box-shadow: .3vw .3vw black;
+}
+
+#timerTimeBut:active{
+    transform: translateY(0vw)translateX(0vw);
+    box-shadow: .2vw .2vw black;
+}
+
+#timerClockBut{
     font-family: main;
     position: fixed;
     font-size: 1.5vw;
@@ -305,12 +341,54 @@
     padding-left: 2vw;
 }
 
-#timerTimeBut:hover{
+#timerClockBut:hover{
     transform: translateY(-.1vw)translateX(-.1vw);
     box-shadow: .3vw .3vw black;
 }
 
-#timerTimeBut:active{
+#timerClockBut:active{
     transform: translateY(0vw)translateX(0vw);
     box-shadow: .2vw .2vw black;
+}
+
+
+#timerClockMeridiem{
+    font-size: 2.2vw;
+    height: 5vw;
+    width: 7vw;
+    border: .3vw black solid;
+    border-radius: .5vw;
+    box-shadow: .1vw .1vw black,.2vw .2vw black,.3vw .3vw black;
+    font-family: main;
+    text-align: center;
+}
+
+#timerClockMeridiem:hover{
+    transform: translateY(-.2vw)translateX(-.2vw);
+    box-shadow: .1vw .1vw black,.2vw .2vw black,.3vw .3vw black,.4vw .4vw black,.5vw .5vw black;
+}
+
+#timerClockMeridiem:active{
+    box-shadow: none;
+    transform: translateY(.2vw)translateX(.2vw);
+}
+
+#timerDivTimeSelect h1{
+    position: fixed;
+    background-color: var(--clear);
+    font-family: main;
+    text-align: center;
+    font-size: 2vw;
+    top: 0;
+    color: var(--secondary-color);
+}
+
+#timerDivClockSelect h1{
+    position: fixed;
+    background-color: var(--clear);
+    font-family: main;
+    text-align: center;
+    font-size: 2vw;
+    top: 0;
+    color: var(--secondary-color);
 }

@@ -18,6 +18,20 @@ let meridiemEl = document.getElementById("meridiem")
 let clockButtonEl = document.getElementById("clockButton")
 let timerButtonEl = document.getElementById("timerButton")
 
+let timerClockMeridiemButtonEl = document.getElementById("timerClockMeridiem")
+let timerClockMeridiem = "AM"
+timerClockMeridiemButtonEl.textContent = timerClockMeridiem
+
+timerClockMeridiemButtonEl.onclick = function(){
+    if (timerClockMeridiem == "AM"){
+        timerClockMeridiem = "PM"
+    }
+    else{
+        timerClockMeridiem = "AM"
+    }
+    timerClockMeridiemButtonEl.textContent = timerClockMeridiem
+}
+
 document.getElementById("settingsButton").onclick = function(){
     document.getElementById("settings").style.opacity = "1"
     document.getElementById("settings").style.pointerEvents = "all"
@@ -114,6 +128,8 @@ function updateClock(){
         else{
             meridiemEl.style.display=""
         }
+    }
+    else if (mode == "timer"){
     }
 }
 updateClock()
