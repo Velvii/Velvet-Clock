@@ -63,7 +63,7 @@
     padding-left: 1vw;
     background-color: var(--secondary-color);
     opacity: .2;
-    z-index: 9999;
+    z-index: 0;
 }
 
 #modeSelect:hover{
@@ -224,13 +224,13 @@
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.26);
-    z-index: 99;
+    z-index: 1;
     justify-content: center;
     align-content: center;
     flex-direction: column;
     backdrop-filter: blur(.5vw)contrast(.2);
-    opacity: 1;
-    pointer-events: all;
+    opacity: 0;
+    pointer-events: none;
     gap: .5vw;
 }
 
@@ -320,21 +320,21 @@
 
 #timerTimeBut:hover{
     transform: translateY(-.1vw)translateX(-.1vw);
-    box-shadow: .3vw .3vw black;
+    box-shadow: .3vw .3vw var(--secondary-color);
 }
 
 #timerTimeBut:active{
     transform: translateY(0vw)translateX(0vw);
-    box-shadow: .2vw .2vw black;
+    box-shadow: .2vw .2vw var(--secondary-color);
 }
 
 #timerClockBut{
     font-family: main;
     position: fixed;
     font-size: 1.5vw;
-    border: .2vw black solid;
+    border: .2vw var(--secondary-color) solid;
     border-radius: 1vw;
-    box-shadow: .2vw .2vw black;
+    box-shadow: .2vw .2vw var(--secondary-color);
     align-self: flex-end;
     bottom: 1vw;
     padding-right: 2vw;
@@ -343,12 +343,12 @@
 
 #timerClockBut:hover{
     transform: translateY(-.1vw)translateX(-.1vw);
-    box-shadow: .3vw .3vw black;
+    box-shadow: .3vw .3vw var(--secondary-color);
 }
 
 #timerClockBut:active{
     transform: translateY(0vw)translateX(0vw);
-    box-shadow: .2vw .2vw black;
+    box-shadow: .2vw .2vw var(--secondary-color);
 }
 
 
@@ -358,14 +358,14 @@
     width: 7vw;
     border: .3vw black solid;
     border-radius: .5vw;
-    box-shadow: .1vw .1vw black,.2vw .2vw black,.3vw .3vw black;
+    box-shadow: .1vw .1vw var(--secondary-color),.2vw .2vw var(--secondary-color),.3vw .3vw var(--secondary-color);
     font-family: main;
     text-align: center;
 }
 
 #timerClockMeridiem:hover{
     transform: translateY(-.2vw)translateX(-.2vw);
-    box-shadow: .1vw .1vw black,.2vw .2vw black,.3vw .3vw black,.4vw .4vw black,.5vw .5vw black;
+    box-shadow: .1vw .1vw var(--secondary-color),.2vw .2vw var(--secondary-color),.3vw .3vw var(--secondary-color),.4vw .4vw var(--secondary-color),.5vw .5vw var(--secondary-color);
 }
 
 #timerClockMeridiem:active{
@@ -391,4 +391,152 @@
     font-size: 2vw;
     top: 0;
     color: var(--secondary-color);
+}
+
+#timerUpDiv{
+    position: fixed;
+    display: flex;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background-color: #0000004f;
+    backdrop-filter: blur(.1vw);
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#timerUpDiv div{
+    width: 70vw;
+    height: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: timerUpDiv .9s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(1.2);
+    position: relative;
+    overflow: hidden;
+    background-color: var(--primary-color);
+    border: .5vw solid vaR(--secondary-color);
+    box-shadow: 0vw 1vw var(--secondary-color);
+    flex-direction: column;
+    border-radius: 1vw;
+    will-change: transform, opacity;
+}
+#timerUpDiv button{
+    font-size: 2vw;
+    border: .3vw var(--secondary-color) solid;
+    font-family: main;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    backdrop-filter:contrast(1);
+    border-radius: 1vw;
+}
+
+#timerUpDiv button:hover{
+    box-shadow: 0vw .5vw var(--secondary-color);
+    transform: translateY(-.5vw);
+}
+
+#timerUpDiv button:active{
+    box-shadow: none;
+    transform: none;
+}
+
+#timerUpDiv div::before{
+    content: "";
+    position: absolute;
+    inset: -80%;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.16) 12%, transparent 13%),radial-gradient(circle, rgba(0, 0, 0, 0.16) 12%, transparent 13%);
+    background-size: 2.2vw 2.2vw;
+    background-position: 0 0,1.1vw 1.1vw;
+    transform: rotate(20deg);
+    z-index: 0;
+    pointer-events: none;
+
+    animation: timerUpDivDots 2.4s infinite linear;
+}
+@keyframes timerUpDivDots{
+    0%{
+        transform: rotate(20deg)translateX(0vw);
+    }
+    100%{
+        transform: rotate(20deg)translateX(2.2vw);
+    }
+}
+
+
+#timerUpDiv div h1{
+    font-size: 10vw;
+    text-align: center;
+    font-family: main;
+    position: relative;
+    z-index: 2;
+    background-color: var(--clear);
+    color: var(--secondary-color)
+}
+
+@keyframes timerUpDiv{
+    0%{
+        transform: translateY(2.5vw) scale(0.7) rotate(-3deg);
+        opacity: 0;
+    }
+    45%{
+        transform: translateY(-0.8vw) scale(1.28) rotate(1.2deg);
+        opacity: 1;
+    }
+    68%{
+        transform: translateY(0.35vw) scale(1.12) rotate(-0.6deg);
+    }
+    82%{
+        transform: translateY(-0.15vw) scale(1.23) rotate(0.2deg);
+    }
+    100%{
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+#timerDivClockSelect{
+    visibility: hidden;
+}
+
+#stylesDiv{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(88, 88, 88, 0.356);
+    backdrop-filter: blur(1vw);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    gap: 1.2vw;
+    visibility: hidden;
+}
+
+#stylesDiv button{
+    width: 10vw;
+    align-self: center;
+    bottom: 0;
+    font-size: 2vw;
+    border: .2vw black solid;
+    border-radius: 1vw;
+}
+
+#stylesDiv div{
+    width:90%;
+    height: 90%;
+    justify-self: center;
+    align-self: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 2vw;
+    border: .5vw black solid;
+    box-shadow: 0vw 1vw black;
+    z-index: 3;
 }

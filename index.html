@@ -37,10 +37,20 @@
                 <p id="timerTimeHint">Hours Minutes Seconds</p>
                 <button id="timerTimeBut">Ok</button>
             </div>
-            <p>or</p>
             <div id="timerDivClockSelect">
                 <h1>Go off at a specific time</h1>
-                <input  placeholder="00"id="timerClockHour"type="number"min="0"max="24"oninput="this.value=this.value.slice(0,2);if (parseInt(this.value) > 12){this.value = '12'}">
+                <input  placeholder="00"id="timerClockHour"type="number"min="0"max="24"oninput="
+                this.value=this.value.slice(0,2);
+                if (parseInt(this.value) > 12){
+                    document.getElementById('timerClockMeridiem').style.display = 'none';
+                    document.getElementById('timerDivClockSelect').getElementsByTagName('p')[1].style.display = 'none';
+                    document.getElementById('timerClockHint').textContent = 'Hour Minute'
+                }
+                else{
+                    getElementById('timerClockMeridiem').style.display = '';
+                    document.getElementById('timerDivClockSelect').getElementsByTagName('p')[1].style.display = '';
+                    document.getElementById('timerClockHint').textContent = 'Hour Minute Meridiem'
+                }">
                 <p>:</p>
                 <input placeholder="00"id="timerClockMinute"type="number"min="0"max="60"oninput="this.value=this.value.slice(0,2);if (parseInt(this.value) > 59){this.value = '59'}">
                 <p>:</p>
@@ -48,6 +58,18 @@
                 <p id="timerClockHint">Hour Minute Meridiem</p>
                 <button id="timerClockBut">Ok</button>
             </div>
+        </div>
+        <div id="timerUpDiv">
+            <div>
+                <h1>TIMES UP!</h1>
+                <button>Ok</button>
+            </div>
+        </div>
+        <div id="stylesDiv">
+            <div>
+
+            </div>
+            <button>Exit</button>
         </div>
     </body>
 </html>

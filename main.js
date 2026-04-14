@@ -1,11 +1,27 @@
 const delay = ms => new Promise(res => setTimeout(res, ms*1000));
 console.clear()
+var alarmtone = new Audio('alarm-tone-1.mp3')
+alarmtone.loop = "true"
+var clicktone = new Audio('click.mp3')
+clicktone.volume = .5
+function playClickTone(){
+    clicktone.currentTime = 0
+    clicktone.play().catch(() => {})
+}
+
+document.addEventListener("click", function(e){
+    const button = e.target.closest("button")
+    if (button && !button.disabled){
+        playClickTone()
+    }
+})
+
 
 let mode
 let military = false
 let secondsDisplay = true;
 let clockAnimation = true;
-console.log()
+let secondsToWait
 
 mode = "clock"
 let hourEl = document.getElementById("hour")
@@ -21,6 +37,15 @@ let timerButtonEl = document.getElementById("timerButton")
 let timerClockMeridiemButtonEl = document.getElementById("timerClockMeridiem")
 let timerClockMeridiem = "AM"
 timerClockMeridiemButtonEl.textContent = timerClockMeridiem
+
+let timerUpDiv = document.getElementById("timerUpDiv")
+let timerUpDivBut = timerUpDiv.getElementsByTagName("button")[0]
+timerUpDivBut.onclick = function(){
+    timerUpDiv.style.opacity = "0"
+    timerUpDiv.style.pointerEvents = "none"
+    alarmtone.pause()
+}
+
 
 timerClockMeridiemButtonEl.onclick = function(){
     if (timerClockMeridiem == "AM"){
@@ -64,6 +89,7 @@ clockButtonEl.onclick = function(){
     document.getElementById("timerButton").classList.remove("selected")
     document.getElementById("timerDiv").style.opacity = "0"
     document.getElementById("timerDiv").style.pointerEvents = "none"
+    updateClock()
 }
 
 timerButtonEl.onclick = function(){
@@ -72,6 +98,7 @@ timerButtonEl.onclick = function(){
     document.getElementById("timerButton").classList.add("selected")
     document.getElementById("timerDiv").style.opacity = "1"
     document.getElementById("timerDiv").style.pointerEvents = "all"
+    updateClock()
 }
 
 
@@ -130,7 +157,92 @@ function updateClock(){
         }
     }
     else if (mode == "timer"){
+        secondEl.style.display=""
+        colon2El.style.display=""
+        let timerMode
+        let timerTimeButEl = document.getElementById("timerTimeBut")
+        timerTimeButEl.onclick = function(){
+            timerMode = "time"
+            startTimer()
+        }
+        let timerClockButEl = document.getElementById("timerClockBut")
+        timerClockButEl.onclick = function(){
+            timerMode = "clock"
+            startTimer()
+        }
+        function startTimer(){
+            let timerDivEl = document.getElementById("timerDiv")
+            timerDivEl.style.opacity = "0"
+            timerDivEl.style.pointerEvents = "none"
+            if (timerMode == "time"){
+                const currentDate = new Date()
+                let hours = document.getElementById("timerTimeHour").value
+                let minutes = document.getElementById("timerTimeMinute").value
+                let seconds = document.getElementById("timerTimeSeconds").value
+                secondsToWait = 0
+                if (Number.isNaN(parseInt(hours))){
+                    hours = 0
+                }
+                if (Number.isNaN(parseInt(minutes))){
+                    minutes = 0
+                }
+                if (Number.isNaN(parseInt(seconds))){
+                    seconds = 0
+                }
+                secondsToWait += parseInt(hours)*60*60
+                secondsToWait += parseInt(minutes)*60
+                secondsToWait += parseInt(seconds)+1
+                updateTimerClock()
+                let id = setInterval(updateTimerClock,1000)
+                function updateTimerClock(){
+                    if (mode == "timer"){
+                        if (secondsToWait > 0){
+                            secondsToWait -= 1
+                            console.log(secondsToWait)
+                            hourEl.textContent = Math.floor(secondsToWait/3600)
+                            if (hourEl.textContent.length == 1){
+                                hourEl.textContent = "0"+hourEl.textContent
+                            }
+                            minuteEl.textContent = Math.floor(secondsToWait%3600/60)
+                            if (minuteEl.textContent.length == 1){
+                                minuteEl.textContent = "0"+minuteEl.textContent
+                            }
+                            secondEl.textContent = Math.floor(secondsToWait%60)
+                            if (secondEl.textContent.length == 1){
+                                secondEl.textContent = "0"+secondEl.textContent
+                            }
+                            if (clockAnimation){
+                                secondEl.style.animation = 'none';
+                                secondEl.offsetHeight;
+                                secondEl.style.animation = "textPop .1s"
+                            }
+                            meridiemEl.style.display = "none"
+                        }
+                        else{
+                            clearInterval(id)
+                            timerUp()
+                        }
+                    }
+                    else{
+                        clearInterval(id)
+                        updateClock()
+                    }
+                }
+            }
+            else if (timerMode == "clock"){
+
+            }
+        }
     }
+}
+
+function timerUp(){
+    alarmtone.play()
+    timerUpDiv.style.opacity = "1"
+    timerUpDiv.style.pointerEvents = "all"
+    timerUpDiv.children[0].style.animation = 'none';
+    timerUpDiv.children[0].offsetHeight;
+    timerUpDiv.children[0].style.animation = "timerUpDiv .9s cubic-bezier(0.22, 1, 0.36, 1)"
 }
 updateClock()
 setInterval(updateClock,1000)
