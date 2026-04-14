@@ -1,6 +1,6 @@
 *{
-    --primary-color: rgb(243, 183, 205);
-    --secondary-color: #ffffff;
+    --primary-color: rgb(191, 255, 0);
+    --secondary-color: #fb00ff;
     --clear: #ffffff00;
     background-color: var(--primary-color);
     transition:  .1s ease-out;
@@ -8,7 +8,7 @@
 
 @font-face{
     font-family: main;
-    src: url(./assets/Blackbold-8On7g.otf)
+    src: url(./assets/Montserrat-Black.otf)
 }
 
 #title{
