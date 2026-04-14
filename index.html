@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="./main.css">
+        <link id="themeStylesheet" rel="stylesheet" href="basic.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -66,10 +66,12 @@
             </div>
         </div>
         <div id="stylesDiv">
-            <div>
-
+            <div id="stylesDivInner">
+                <button onclick="document.getElementById('themeStylesheet').setAttribute('href','basic.css')" style="color: black; background-color: white; border: .5vw black solid; box-shadow: 0vw .5vw black;">Basic</button>
+                <button onclick="document.getElementById('themeStylesheet').setAttribute('href','night.css')" style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 0); border: .5vw rgb(255, 255, 255) solid; box-shadow: 0vw .5vw rgb(255, 255, 255);">Night</button>
+                <button onclick="document.getElementById('themeStylesheet').setAttribute('href','viv.css')" style="color: #ffffff; background-color: rgb(243, 183, 205); border: .5vw #ffffff solid; box-shadow: 0vw .5vw #ffffff;">Viv</button>
             </div>
-            <button>Exit</button>
+            <button id="stylesDivCloseButton">Exit</button>
         </div>
     </body>
 </html>

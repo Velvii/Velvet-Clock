@@ -1,6 +1,6 @@
 *{
     --primary-color: rgb(255, 255, 255);
-    --secondary-color: rgb(0, 0, 0);
+    --secondary-color: #000000;
     --clear: #ffffff00;
     background-color: var(--primary-color);
     transition:  .1s ease-out;
@@ -244,8 +244,8 @@
     width: 40vw;
     align-self: center;
     border-radius: 2vw;
-    border: .3vw black solid;
-    box-shadow: .2vw .2vw black,.4vw .4vw black,.6vw .6vw black,.8vw .8vw black,1vw 1vw black;
+    border: .3vw var(--secondary-color) solid;
+    box-shadow: .2vw .2vw var(--secondary-color),.4vw .4vw var(--secondary-color),.6vw .6vw var(--secondary-color),.8vw .8vw var(--secondary-color),1vw 1vw var(--secondary-color);
     gap: 1vw;
 }
 
@@ -253,13 +253,14 @@
     font-size: 2.2vw;
     height: 5vw;
     width: 5vw;
-    border: .3vw black solid;
+    border: .3vw var(--secondary-color) solid;
     border-radius: .5vw;
-    box-shadow: .1vw .1vw black,.2vw .2vw black,.3vw .3vw black;
+    box-shadow: .1vw .1vw var(--secondary-color),.2vw .2vw var(--secondary-color),.3vw .3vw var(--secondary-color);
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     text-align: center;
     font-family: main;
+    color: var(--secondary-color);
 }
 
 #timerDiv div input::-webkit-outer-spin-button,
@@ -434,6 +435,7 @@
     padding-right: 5vw;
     backdrop-filter:contrast(1);
     border-radius: 1vw;
+    color: var(--secondary-color);
 }
 
 #timerUpDiv button:hover{
@@ -513,30 +515,54 @@
     background-color: rgba(88, 88, 88, 0.356);
     backdrop-filter: blur(1vw);
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-content: center;
     flex-direction: column;
     gap: 1.2vw;
-    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
 }
 
 #stylesDiv button{
+    font-family: main;
     width: 10vw;
     align-self: center;
-    bottom: 0;
     font-size: 2vw;
-    border: .2vw black solid;
+    border: .5vw var(--secondary-color) solid;
     border-radius: 1vw;
+    margin: 1vw;
+    color: var(--secondary-color);
 }
 
-#stylesDiv div{
+#stylesDiv button:hover{
+    transform: scale(1.05)
+}
+
+#stylesDiv button:active{
+    transform: scale(.95)
+}
+
+#stylesDivInner{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 1vw;
     width:90%;
-    height: 90%;
+    padding: 1vw;
+    height: 80%;
     justify-self: center;
     align-self: center;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--primary-color);
     border-radius: 2vw;
-    border: .5vw black solid;
-    box-shadow: 0vw 1vw black;
+    border: .5vw var(--secondary-color) solid;
+    box-shadow: 0vw 1vw var(--secondary-color);
     z-index: 3;
+    margin: auto;
+}
+
+#stylesDivInner button{
+    width: 10vw;
+    height: 10vw;
+    font-size: 2vw;
+    color: var(--secondary-color);
 }

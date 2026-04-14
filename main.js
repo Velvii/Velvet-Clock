@@ -17,6 +17,7 @@ document.addEventListener("click", function(e){
 })
 
 
+
 let mode
 let military = false
 let secondsDisplay = true;
@@ -45,6 +46,12 @@ timerUpDivBut.onclick = function(){
     timerUpDiv.style.pointerEvents = "none"
     alarmtone.pause()
 }
+let stylesDiv = document.getElementById("stylesDiv")
+let stylesCloseBut = document.getElementById("stylesDivCloseButton")
+stylesCloseBut.onclick = function(){
+    stylesDiv.style.opacity = "0"
+    stylesDiv.style.pointerEvents = "none"
+}
 
 
 timerClockMeridiemButtonEl.onclick = function(){
@@ -60,6 +67,11 @@ timerClockMeridiemButtonEl.onclick = function(){
 document.getElementById("settingsButton").onclick = function(){
     document.getElementById("settings").style.opacity = "1"
     document.getElementById("settings").style.pointerEvents = "all"
+}
+
+document.getElementById("themesButton").onclick = function(){
+    stylesDiv.style.opacity = "1"
+    stylesDiv.style.pointerEvents = "all"
 }
 
 document.getElementById("settingsCloseButton").onclick = function(){
@@ -105,20 +117,21 @@ timerButtonEl.onclick = function(){
 function updateClock(){
     if (mode == "clock"){
         const currentDate = new Date()
+        const currentHour = currentDate.getHours()
         if (military){
-            hourEl.textContent = currentDate.getHours()
+            hourEl.textContent = currentHour
         }
         else{
-            
-            if (currentDate.getHours() > 12){
-                hourEl.textContent = currentDate.getHours()-12
+            if (currentHour > 12){
+                hourEl.textContent = currentHour-12
                 meridiemEl.textContent = "PM"
             }
             else{
+                hourEl.textContent = currentHour == 0 ? 12 : currentHour
                 meridiemEl.textContent = "AM"
             }
         }
-        if (currentDate.getMinutes() <= 10){
+        if (currentDate.getMinutes() < 10){
             minuteEl.textContent = "0"+currentDate.getMinutes().toString()
             
         }
@@ -128,7 +141,7 @@ function updateClock(){
         if (secondsDisplay){
             secondEl.style.display=""
             colon2El.style.display=""
-            if (currentDate.getSeconds() <= 10){
+            if (currentDate.getSeconds() < 10){
                 if (clockAnimation){
                     secondEl.style.animation = 'none';
                     secondEl.offsetHeight;
@@ -243,6 +256,12 @@ function timerUp(){
     timerUpDiv.children[0].style.animation = 'none';
     timerUpDiv.children[0].offsetHeight;
     timerUpDiv.children[0].style.animation = "timerUpDiv .9s cubic-bezier(0.22, 1, 0.36, 1)"
+    mode = "clock"
+    document.getElementById("clockButton").classList.add("selected")
+    document.getElementById("timerButton").classList.remove("selected")
+    document.getElementById("timerDiv").style.opacity = "0"
+    document.getElementById("timerDiv").style.pointerEvents = "none"
+    updateClock()
 }
 updateClock()
 setInterval(updateClock,1000)
