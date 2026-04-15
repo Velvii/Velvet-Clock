@@ -17,7 +17,6 @@ document.addEventListener("click", function(e){
 })
 
 
-
 let mode
 let military = false
 let secondsDisplay = true;
@@ -82,16 +81,34 @@ document.getElementById("settingsCloseButton").onclick = function(){
 document.getElementById("militaryToggleButton").onclick = function(){
     military = !military
     updateClock()
+    if (military){
+        localStorage.setItem("militaryTimeSetting","on")
+    }
+    else if (!military){
+        localStorage.setItem("militaryTimeSetting","off")
+    }
 }
 
 document.getElementById("secondsToggleButton").onclick = function(){
     secondsDisplay = !secondsDisplay
     updateClock()
+    if (secondsDisplay){
+        localStorage.setItem("secondsTimeSetting","on")
+    }
+    else if (!secondsDisplay){
+        localStorage.setItem("secondsTimeSetting","off")
+    }
 }
 
 document.getElementById("animationToggleButton").onclick = function(){
     clockAnimation = !clockAnimation
     updateClock()
+    if (clockAnimation){
+        localStorage.setItem("animationTimeSetting","on")
+    }
+    else if (!clockAnimation){
+        localStorage.setItem("animationTimeSetting","off")
+    }
 }
 
 
@@ -263,5 +280,39 @@ function timerUp(){
     document.getElementById("timerDiv").style.pointerEvents = "none"
     updateClock()
 }
+
+function handleLocalStorage(){
+    if (localStorage.getItem("militaryTimeSetting") == null){
+        localStorage.setItem("militaryTimeSetting","off")
+    }
+    else if (localStorage.getItem("militaryTimeSetting") == "on"){
+        military = true
+    }
+    else{
+        military = false
+    }
+
+    if (localStorage.getItem("secondsTimeSetting") == null){
+        localStorage.setItem("secondsTimeSetting","off")
+    }
+    else if (localStorage.getItem("secondsTimeSetting") == "on"){
+        secondsDisplay = true
+    }
+    else{
+        secondsDisplay = false
+    }
+
+    if (localStorage.getItem("animationTimeSetting") == null){
+        localStorage.setItem("animationTimeSetting","off")
+    }
+    else if (localStorage.getItem("animationTimeSetting") == "on"){
+        clockAnimation = true
+    }
+    else{
+        clockAnimation = false
+    }
+}
+
+handleLocalStorage()
 updateClock()
 setInterval(updateClock,1000)

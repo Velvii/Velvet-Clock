@@ -2,6 +2,7 @@
     --primary-color: rgb(255, 255, 255);
     --secondary-color: #000000;
     --clear: #ffffff00;
+    --radius: .5vw;
     background-color: var(--primary-color);
     transition:  .1s ease-out;
 }
@@ -64,6 +65,7 @@
     background-color: var(--secondary-color);
     opacity: .2;
     z-index: 0;
+    border-radius: var(--radius);
 }
 
 #modeSelect:hover{
@@ -79,6 +81,7 @@
     -webkit-text-stroke: .08vw var(--primary-color);
     background-color: var(--secondary-color);
     color: var(--secondary-color);
+    border-radius: var(--radius);
 }
 
 
@@ -114,8 +117,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: .2;
-    filter: invert(1);
+    opacity: .3;
+    filter: invert(.5);
     mix-blend-mode: exclusion;
 }
 
@@ -141,8 +144,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: .2;
-    filter: invert(1);
+    opacity: .3;
+    filter: invert(.5);
     mix-blend-mode: exclusion;
 }
 
@@ -183,7 +186,7 @@
     right: 1vh;
     width: 30vh;
     padding: 1vh;
-    border-radius: 1vh;
+    border-radius: var(--radius);
     opacity: 0;
     pointer-events: none;
     filter: none;
@@ -196,7 +199,7 @@
     padding: .3vh;
     margin: .2vh;
     border: .3vh var(--secondary-color) solid;
-    border-radius: .2vh;
+    border-radius: var(--radius);
     color: var(--secondary-color);
 }
 
@@ -228,7 +231,8 @@
     justify-content: center;
     align-content: center;
     flex-direction: column;
-    backdrop-filter: blur(.5vw)contrast(.2);
+    -webkit-backdrop-filter: blur(.5vw) contrast(.2);
+    backdrop-filter: blur(.5vw) contrast(.2);
     opacity: 0;
     pointer-events: none;
     gap: .5vw;
@@ -243,7 +247,7 @@
     height: 20vw;
     width: 40vw;
     align-self: center;
-    border-radius: 2vw;
+    border-radius: var(--radius);
     border: .3vw var(--secondary-color) solid;
     box-shadow: .2vw .2vw var(--secondary-color),.4vw .4vw var(--secondary-color),.6vw .6vw var(--secondary-color),.8vw .8vw var(--secondary-color),1vw 1vw var(--secondary-color);
     gap: 1vw;
@@ -254,7 +258,7 @@
     height: 5vw;
     width: 5vw;
     border: .3vw var(--secondary-color) solid;
-    border-radius: .5vw;
+    border-radius: var(--radius);
     box-shadow: .1vw .1vw var(--secondary-color),.2vw .2vw var(--secondary-color),.3vw .3vw var(--secondary-color);
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
@@ -309,7 +313,7 @@
     position: fixed;
     font-size: 1.5vw;
     border: .2vw var(--secondary-color) solid;
-    border-radius: 1vw;
+    border-radius: var(--radius);
     box-shadow: .2vw .2vw var(--secondary-color);
     align-self: flex-end;
     bottom: 1vw;
@@ -334,7 +338,7 @@
     position: fixed;
     font-size: 1.5vw;
     border: .2vw var(--secondary-color) solid;
-    border-radius: 1vw;
+    border-radius: var(--radius);
     box-shadow: .2vw .2vw var(--secondary-color);
     align-self: flex-end;
     bottom: 1vw;
@@ -358,7 +362,7 @@
     height: 5vw;
     width: 7vw;
     border: .3vw black solid;
-    border-radius: .5vw;
+    border-radius: var(--radius);
     box-shadow: .1vw .1vw var(--secondary-color),.2vw .2vw var(--secondary-color),.3vw .3vw var(--secondary-color);
     font-family: main;
     text-align: center;
@@ -424,7 +428,7 @@
     border: .5vw solid vaR(--secondary-color);
     box-shadow: 0vw 1vw var(--secondary-color);
     flex-direction: column;
-    border-radius: 1vw;
+    border-radius: var(--radius);
     will-change: transform, opacity;
 }
 #timerUpDiv button{
@@ -434,7 +438,7 @@
     padding-left: 5vw;
     padding-right: 5vw;
     backdrop-filter:contrast(1);
-    border-radius: 1vw;
+    border-radius: var(--radius);
     color: var(--secondary-color);
 }
 
@@ -529,7 +533,7 @@
     align-self: center;
     font-size: 2vw;
     border: .5vw var(--secondary-color) solid;
-    border-radius: 1vw;
+    border-radius: var(--radius);
     margin: 1vw;
     color: var(--secondary-color);
 }
@@ -553,7 +557,7 @@
     justify-self: center;
     align-self: center;
     background-color: var(--primary-color);
-    border-radius: 2vw;
+    border-radius: var(--radius);
     border: .5vw var(--secondary-color) solid;
     box-shadow: 0vw 1vw var(--secondary-color);
     z-index: 3;

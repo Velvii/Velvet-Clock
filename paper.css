@@ -2,6 +2,7 @@
     --primary-color: rgb(255, 247, 237);
     --secondary-color: #3e2c12;
     --clear: #ffffff00;
+    --radius: 0vw;
     background-color: var(--primary-color);
     transition:  .1s ease-out;
 }

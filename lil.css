@@ -1,7 +1,7 @@
 *{
     --primary-color: rgb(191, 255, 0);
     --secondary-color: #fb00ff;
-    --clear: #ffffff00;
+    --clear: #ffffff00
     background-color: var(--primary-color);
     transition:  .1s ease-out;
 }
