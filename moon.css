@@ -1,6 +1,6 @@
 *{
-    --primary-color: rgb(91, 95, 123);
-    --secondary-color: #d8e3e7;
+    --primary-color: rgb(47, 60, 163);
+    --secondary-color: #b9d7ff;
     --clear: #ffffff00;
     background-color: var(--primary-color);
     transition:  .1s ease-out;
@@ -8,5 +8,5 @@
 
 @font-face{
     font-family: main;
-    src: url(./assets/Montserrat-Black.otf)
+    src: url(./assets/FOT-Skip-Std-B.otf)
 }

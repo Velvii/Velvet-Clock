@@ -1,6 +1,6 @@
 *{
-    --primary-color: rgb(91, 95, 123);
-    --secondary-color: #d8e3e7;
+    --primary-color: rgb(255, 247, 237);
+    --secondary-color: #3e2c12;
     --clear: #ffffff00;
     background-color: var(--primary-color);
     transition:  .1s ease-out;
@@ -8,5 +8,5 @@
 
 @font-face{
     font-family: main;
-    src: url(./assets/Montserrat-Black.otf)
+    src: url(./assets/RomanticAdoreDemoRegular-5yGpj.ttf)
 }
