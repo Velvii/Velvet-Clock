@@ -1,0 +1,17 @@
+*{
+    --primary-color: rgb(255, 211, 37);
+    --secondary-color: #53277c;
+    --clear: #ffffff00;
+    --radius: 0vw;
+    background-color: var(--primary-color);
+    transition:  .1s ease-out;
+    letter-spacing: .1vw;
+    letter-spacing: .1vw;
+}
+
+@font-face{
+    font-family: main;
+    src: url(./assets/CNRGNNormal.otf)
+}
+#settings{
+}
