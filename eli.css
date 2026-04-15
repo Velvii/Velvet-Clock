@@ -1,0 +1,13 @@
+*{
+    --primary-color: rgb(33, 46, 10);
+    --secondary-color: #86612d;
+    --clear: #00000000;
+    --radius: 0vw;
+    background-color: var(--primary-color);
+    transition:  .1s ease-out;
+}
+
+@font-face{
+    font-family: main;
+    src: url(./assets/CarnivaleeFreakshow-DLrm.ttf)
+}
