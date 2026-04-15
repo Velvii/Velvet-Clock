@@ -226,6 +226,26 @@ function updateClock(){
                 let id = setInterval(updateTimerClock,1000)
                 function updateTimerClock(){
                     if (mode == "timer"){
+                        clockButtonEl.onclick = function(){
+                            clearInterval(id)
+                            mode = "clock"
+                            document.getElementById("clockButton").classList.add("selected")
+                            document.getElementById("timerButton").classList.remove("selected")
+                            document.getElementById("timerDiv").style.opacity = "0"
+                            document.getElementById("timerDiv").style.pointerEvents = "none"
+                            updateClock()
+                            return;
+                        }
+                        timerButtonEl.onclick = function(){
+                            clearInterval(id)
+                            mode = "timer"
+                            document.getElementById("clockButton").classList.remove("selected")
+                            document.getElementById("timerButton").classList.add("selected")
+                            document.getElementById("timerDiv").style.opacity = "1"
+                            document.getElementById("timerDiv").style.pointerEvents = "all"
+                            updateClock()
+                            return
+                        }
                         if (secondsToWait > 0){
                             secondsToWait -= 1
                             console.log(secondsToWait)
