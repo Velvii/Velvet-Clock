@@ -11,3 +11,7 @@
     font-family: main;
     src: url(./assets/Southa-2vZv3.otf)
 }
+
+#time p{
+    font-size: 30vw;
+}

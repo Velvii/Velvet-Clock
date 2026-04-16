@@ -122,9 +122,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: .3;
-    filter: invert(.5);
-    mix-blend-mode: exclusion;
+    opacity: .5;
+    filter: invert(.25) contrast(.9);
 }
 
 #settingsButton:hover{
@@ -149,9 +148,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: .3;
-    filter: invert(.5);
-    mix-blend-mode: exclusion;
+    opacity: .5;
+    filter: invert(.25) contrast(.9);
 }
 
 @keyframes settingsButtonHover{
