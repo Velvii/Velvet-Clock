@@ -12,9 +12,14 @@
     src: url(./assets/Montserrat-Black.otf)
 }
 
+@font-face{
+    font-family: secondary;
+    src: url(./assets/Montserrat-Black.otf)
+}
+
 #title{
     position: fixed;
-    font-family: main;
+    font-family: secondary;
     text-align: center;
     font-size: 2vh;
     transform: translateX(-50%) skew(-10deg);
@@ -74,7 +79,7 @@
 }
 
 #modeSelect button{
-    font-family: main;
+    font-family: secondary;
     border: none;
     opacity: .5;
     font-size: 2vw;
@@ -194,7 +199,7 @@
 }
 
 #settings button{
-    font-family: main;
+    font-family: secondary;
     font-size: 1.5vh;
     padding: .3vh;
     margin: .2vh;
@@ -263,7 +268,11 @@
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     text-align: center;
-    font-family: main;
+    font-family: secondary;
+    color: var(--secondary-color);
+}
+
+#timerDiv div input::placeholder{
     color: var(--secondary-color);
 }
 
@@ -276,7 +285,7 @@
 #timerDiv p{
     margin: .5vw;
     align-self: center;
-    font-family: main;
+    font-family: secondary;
     background-color: var(--clear);
     color: var(--primary-color);
     -webkit-text-stroke: .2vw var(--secondary-color);
@@ -291,10 +300,10 @@
     font-size: 1.5vw !important;
     -webkit-text-stroke: 0 !important;
     filter: none !important;
-    color: rgba(0, 0, 0, 0.25) !important;
     transform: translateY(4vw)translateX(1vw)skew(0deg) !important;
     word-spacing: 2vw;
     pointer-events: none;
+    color: var(--secondary-color) !important;
 }
 
 #timerClockHint{
@@ -309,7 +318,7 @@
 }
 
 #timerTimeBut{
-    font-family: main;
+    font-family: secondary;
     position: fixed;
     font-size: 1.5vw;
     border: .2vw var(--secondary-color) solid;
@@ -334,7 +343,7 @@
 }
 
 #timerClockBut{
-    font-family: main;
+    font-family: secondary;
     position: fixed;
     font-size: 1.5vw;
     border: .2vw var(--secondary-color) solid;
@@ -364,7 +373,7 @@
     border: .3vw black solid;
     border-radius: var(--radius);
     box-shadow: .1vw .1vw var(--secondary-color),.2vw .2vw var(--secondary-color),.3vw .3vw var(--secondary-color);
-    font-family: main;
+    font-family: secondary;
     text-align: center;
 }
 
@@ -381,7 +390,7 @@
 #timerDivTimeSelect h1{
     position: fixed;
     background-color: var(--clear);
-    font-family: main;
+    font-family: secondary;
     text-align: center;
     font-size: 2vw;
     top: 0;
@@ -391,7 +400,7 @@
 #timerDivClockSelect h1{
     position: fixed;
     background-color: var(--clear);
-    font-family: main;
+    font-family: secondary;
     text-align: center;
     font-size: 2vw;
     top: 0;
@@ -434,7 +443,7 @@
 #timerUpDiv button{
     font-size: 2vw;
     border: .3vw var(--secondary-color) solid;
-    font-family: main;
+    font-family: secondary;
     padding-left: 5vw;
     padding-right: 5vw;
     backdrop-filter:contrast(1);
@@ -456,8 +465,9 @@
     content: "";
     position: absolute;
     inset: -80%;
-    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.16) 12%, transparent 13%),radial-gradient(circle, rgba(0, 0, 0, 0.16) 12%, transparent 13%);
+    background-image: radial-gradient(circle, var(--secondary-color) 12%, transparent 13%),radial-gradient(circle, var(--secondary-color) 12%, transparent 13%);
     background-size: 2.2vw 2.2vw;
+    opacity: .2;
     background-position: 0 0,1.1vw 1.1vw;
     transform: rotate(20deg);
     z-index: 0;
@@ -528,7 +538,7 @@
 }
 
 #stylesDiv button{
-    font-family: main;
+    font-family: secondary;
     width: 10vw;
     align-self: center;
     font-size: 2vw;
@@ -570,4 +580,5 @@
     font-size: 2vw;
     text-align: center;
     color: var(--secondary-color);
+    font-family: secondary;
 }
