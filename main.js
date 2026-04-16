@@ -331,6 +331,19 @@ function handleLocalStorage(){
     else{
         clockAnimation = false
     }
+    if (localStorage.getItem("theme") == null){
+        localStorage.setItem("theme","basic")
+    }
+    else{
+        let theme = localStorage.getItem("theme")
+        console.log(theme+'.css')
+        if (theme=="basic"){
+            document.getElementById('themeStylesheet').setAttribute('href','basic.css')
+        }
+        else{
+            document.getElementById('themeStylesheet').setAttribute('href',theme+'.css')
+        }
+    }
 }
 
 handleLocalStorage()
