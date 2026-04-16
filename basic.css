@@ -126,6 +126,39 @@
     filter: invert(.25) contrast(.9);
 }
 
+#infoButton{
+    position: fixed;
+    width: 3vh;
+    height: 3vh;
+    background-color: transparent;
+    bottom: 1vh;
+    right: 1vh;
+    border: none;
+    background-image: url(./assets/info.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: .5;
+    filter: invert(.25) contrast(.9);
+}
+
+#infoButton:hover{
+    opacity: 1;
+    animation: infoButtonHover cubic-bezier(0.33, 1, 0.68, 1) 1s;
+}
+
+@keyframes infoButtonHover{
+    40%{
+        transform: rotate(30deg);
+    }
+    50%{
+        transform: rotate(-10deg);
+    }
+    100%{
+
+    }
+}
+
 #settingsButton:hover{
     opacity: 1;
     animation: settingsButtonHover cubic-bezier(0.33, 1, 0.68, 1) 1s;
